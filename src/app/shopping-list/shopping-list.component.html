@@ -3,5 +3,18 @@
         <app-shopping-edit></app-shopping-edit>
         <hr>
         <p>The list</p>
+        <img [src] = "product.Pimage">
+        <p>Name: {{ product.name }}</p>
+        <p>Price: {{ '$' + product.price }}</p>
+        <p>Color: {{ product.color }}</p>
+        <p>Discounted Price: {{ getdiscountedprice().toFixed(1) }}</p>
+        <p>{{ product.instock > 0 ? 'Only ' + product.instock + ' left' : 'Product not in stock' }}</p>
+        <button [disabled]="!(product.instock > 0)">Buy Now</button>
+        <button (click)="decrementCartValue()"> - </button>
+        <span> {{addToCart}} </span>
+        <button (click)="increamentCartValue()"> + </button>
+        <br>
+        <input [(ngModel)] = "name">
+        <p>name = {{name}}</p>
     </div>
 </div>
